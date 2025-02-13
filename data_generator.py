@@ -34,7 +34,7 @@ def generate_random_date(start, end):
 # Random company names
 
 
-def generate_companies(file_path, num_names=num_companies):
+def generate_companies(file_path, num_names):
     dinosaur_names = []
     with open(file_path, "r", encoding="utf-8") as file:
         reader = csv.reader(file)  # read the file
