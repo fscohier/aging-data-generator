@@ -73,7 +73,7 @@ def calculate_late_payment_probability(region):
 # This is to make sure that the names are picked up one by one in the company list
 company_index = 0
 companies = generate_companies(
-    "../Dino Scraper/dinosaur_list.csv", num_companies)
+    "./company_list.csv", num_companies)
 for region, region_ratio in region_distribution.items():
     num_region_customers = round(region_ratio * num_companies)
     for _ in range(num_region_customers):
@@ -171,12 +171,12 @@ invoices.sort(key=lambda x: (
     int(x["Customer ID"]), datetime.strptime(x["Document Date"], "%d-%m-%Y")))
 
 # Saving the output to CSV files
-with open("Customer Data.csv", "w", newline="") as customer_file:
+with open("customer_data.csv", "w", newline="") as customer_file:
     writer = csv.DictWriter(customer_file, fieldnames=customers[0].keys())
     writer.writeheader()
     writer.writerows(customers)
 
-with open("Aging Report 2023-2024.csv", "w", newline="") as aging_file:
+with open("aging_report_2023-2024.csv", "w", newline="") as aging_file:
     writer = csv.DictWriter(aging_file, fieldnames=invoices[0].keys())
     writer.writeheader()
     writer.writerows(invoices)
